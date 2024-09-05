@@ -23,12 +23,8 @@ jugadores = [
     {'nombre': 'Alba', 'edad': 32, 'posicion': 'Defensa', 'partidos_jugados': 27, 'goles': [1, 2, 3]},
 ]
 
-# 1. Identifica al defensa con más goles.
-# 2. Encuentra al jugador con el mejor promedio de goles por partido jugado. @Jugador Estrella
-# 3. Calcula la edad promedio de los mediocampistas.
-# 4. Funcion que muestra todos los jugadores de la lista
-# 5. Mostrar jugadores por posicion
-# 6. Agrega jugadores a la lista
+# Funcion que recibe una lista de numeros y retorna su promedio.
+# Usada para retornar el promedio de goles y de edad de los MD
 def obtenerPromedioGoles(listaGoles):
     sumaGoles = 0
     for goles in listaGoles:
@@ -36,13 +32,16 @@ def obtenerPromedioGoles(listaGoles):
     promedioGoles = sumaGoles / len(listaGoles)
     return promedioGoles
 
+
+# Funcion que recibe una lista de numeros y retorna una sumatoria de los valores de la lista
 def obtenerTotalGoles(listaGoles):
     sumaGoles = 0
     for goles in listaGoles:
         sumaGoles =  sumaGoles + goles
     return sumaGoles
 
-
+# Funcion que muestra los Jugadores poderosos: Jugadores con mas de 20 partidos jugados
+# Y un promedio por sobre 10 goles
 def mostrarJugadoresPoderosos():
     jugadoresPoderosos = []
     for jugador in jugadores:
@@ -52,6 +51,9 @@ def mostrarJugadoresPoderosos():
     print('A continuacion los jugadores poderosos: ')
     print(jugadoresPoderosos)
 
+
+# Funcion que muestra los delanteros infalibles: Jugadores que son delanteros, cuentan con mas de 20 partidos jugados
+# Y tienen mas de 25 a;os
 def mostrarDelanterosInfalibles():
     delanterosInfalibles = []
     for jugador in jugadores:
@@ -63,6 +65,8 @@ def mostrarDelanterosInfalibles():
     print(delanterosInfalibles)
 
 
+
+#  Identifica al defensa con más goles.
 def mostrarDefensaGoleador():
     maximoGoles = 0
     for jugador in jugadores:
@@ -73,6 +77,9 @@ def mostrarDefensaGoleador():
     print('Defensa con mas goles: ',defensaGoleador,'Goles: ',maximoGoles)
 
 
+
+
+# Encuentra al jugador con el mejor promedio de goles por partido jugado. @Jugador Estrella
 def calcularPtjEstrella(promedioGoles,cantidadPartidosJugados):
     puntajeEstrellita = promedioGoles / cantidadPartidosJugados
     return puntajeEstrellita
@@ -87,6 +94,8 @@ def mostrarJugadorEstrella():
             recordPtjEstrella = puntajeEstrella
     print('El jugador estrella es: ',jugadorEstrella['nombre'],'Con un puntaje estrella de: ',recordPtjEstrella)
 
+
+# Calcula la edad promedio de los mediocampistas.
 def mostrarEdadPromedioMD():
     edades = []
     for jugador in jugadores:
@@ -94,7 +103,11 @@ def mostrarEdadPromedioMD():
             edades.append(jugador['edad'])
     promedioEdades = obtenerPromedioGoles(edades)
     print('La edad promedio de los mediocampistas es: ',promedioEdades)
-    
+
+
+# 1. Funcion que muestra todos los jugadores de la lista
+# 2. Mostrar jugadores por posicion
+# 3. Agrega jugadores a la lista
     
 menu = True
 while (menu):
@@ -111,6 +124,7 @@ while (menu):
     elif opcion == 5: 
         mostrarEdadPromedioMD()
     elif opcion == 6: 
+        print('Muchas gracias por visitar nuestra BD de jugadores')
         menu = False
 
 
