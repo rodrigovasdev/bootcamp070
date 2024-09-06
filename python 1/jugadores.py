@@ -106,12 +106,71 @@ def mostrarEdadPromedioMD():
 
 
 # 1. Funcion que muestra todos los jugadores de la lista
+
+def mostrarJugadores():
+    print('A continuacion la lista de todos los jugadores!')
+    for jugador in jugadores:
+        print(jugador['nombre'])
+
+
 # 2. Mostrar jugadores por posicion
+
+def filtrarPorPosicion(posicion):
+    for jugador in jugadores:
+        if jugador['posicion'] == posicion:
+            print(jugador['nombre'],jugador['posicion'])
+
+def mostrarJugadoresPorPosicion ():
+    opcion = input('Que posicion de jugadores desea mostrar \n 1.- Delanteros \n 2.- Medio Campistas \n 3.- Defensas \n 4.- Volver al menu principal \n Ingrese su opcion')
+    opcion = int(opcion)
+    if opcion == 1:
+        filtrarPorPosicion('Delantero')
+    elif opcion == 2:
+        filtrarPorPosicion('Mediocampista')
+    elif opcion == 3:
+        filtrarPorPosicion('Defensa')
+    elif opcion == 4:
+        print('Vuelta al menu')
+    else:
+        print('Ingrese una opcion valida: 1, 2 o 3')
+        mostrarJugadoresPorPosicion() #Recursiva
+
 # 3. Agrega jugadores a la lista
+def obtenerPosicion():
+    posicion = input("Escoje la posicion \n 1.- Delantero \n 2.- Mediocampista \n 3.- Defensa")
+    posicion = int(posicion)
+    if posicion == 1:
+        return 'Delantero'
+    elif posicion == 2:
+        return 'Mediocampista'
+    elif posicion == 3:
+        return 'Defensa'
+    else:
+        print('Ingrese una opcion valida')
+        obtenerPosicion() #Recursiva
+
+def agregarJugador():
+    nombre = input('Ingrese el nombre')
+    edad = input('Ingrese la edad')
+    edad = int(edad)
+    posicion = obtenerPosicion()
+    partidos = input('Ingrese los partidos jugados')
+    partidos = int(partidos)
+    goles = []
+    for i in range(partidos):
+        print('Ingresa los goles del partido N:',i+1)
+        cantidadGoles = input('')
+        cantidadGoles = int(cantidadGoles)
+        goles.append(cantidadGoles)    
+    nuevoJugador = {'nombre':nombre,'edad':edad,'posicion':posicion,'partidos_jugados': partidos, 'goles':goles}
+    print('Se agrego',nuevoJugador,'A la lista')
+    jugadores.append(nuevoJugador)
     
+
+# Menu principal
 menu = True
 while (menu):
-    opcion = input('1.- Mostrar jugadores poderosos \n 2.- Mostrar delanteros infalibles \n 3.- Mostrar defensa goleador \n 4.- Mostrar jugador estrella \n 5.- Mostrar edad promedio mediocampistas \n 6.- Salir \n Ingrese su opcion: ')
+    opcion = input(' 1.- Mostrar jugadores poderosos \n 2.- Mostrar delanteros infalibles \n 3.- Mostrar defensa goleador \n 4.- Mostrar jugador estrella \n 5.- Mostrar edad promedio mediocampistas \n 6.- Mostrar lista de todos los jugadores \n 7.- Mostrar jugador por posicion \n 8.- Agregar jugador \n 9.- Salir \n Ingrese su opcion: ')
     opcion = int(opcion)
     if opcion == 1:
         mostrarJugadoresPoderosos()
@@ -123,7 +182,13 @@ while (menu):
         mostrarJugadorEstrella()
     elif opcion == 5: 
         mostrarEdadPromedioMD()
-    elif opcion == 6: 
+    elif opcion == 6:
+        mostrarJugadores()
+    elif opcion == 7:
+        mostrarJugadoresPorPosicion()
+    elif opcion == 8: 
+        agregarJugador()
+    elif opcion == 9: 
         print('Muchas gracias por visitar nuestra BD de jugadores')
         menu = False
 
