@@ -5,7 +5,9 @@ nombres = ["Carlos", "Luis", "Ana", "Marta", "Sofía"]
 
 largoLista = len(nombres)
 for indice in range(largoLista):
-    nombres[indice] = 'perrito' 
+    print('Para ',nombres[indice])
+    apellido = input("Ingrese el apellido ")
+    nombres[indice] = nombres[indice] + ' ' + apellido
 print(nombres)
 
 """
