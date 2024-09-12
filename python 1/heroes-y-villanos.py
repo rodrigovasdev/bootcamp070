@@ -18,3 +18,24 @@ lista = [
     {"nombre": "Clara", "villano": True, "heroe": False, "superpoder": "Manipulación del Tiempo", "ciudad": "Londres"},
     {"nombre": "Juan", "villano": True, "heroe": True, "superpoder": "Vuelo", "ciudad": "Los Ángeles"},
 ]
+
+def listaHeroesVillanos(personajes):
+    nuevaLista = []
+    for personaje in personajes:
+        if personaje['villano'] == True and personaje['heroe'] == True:
+            nuevoContradictorio = personaje['nombre'] + ' el contradictorio Villano/Heroe, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
+            nuevaLista.append(nuevoContradictorio)
+        elif personaje ['villano']:
+            nuevoVillano =  personaje['nombre'] + ' es un Villano, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
+            nuevaLista.append(nuevoVillano)
+        elif personaje['heroe'] == True:
+            nuevoHeroe =  personaje['nombre'] + ' es un Heroe, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
+            nuevaLista.append(nuevoHeroe)
+    return nuevaLista
+
+def mostrarLista(lista):
+    for elemento in lista:
+        print(elemento)
+
+heroesvillanos = listaHeroesVillanos(lista)
+mostrarLista(heroesvillanos)
