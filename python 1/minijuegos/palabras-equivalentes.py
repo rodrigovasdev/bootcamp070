@@ -7,13 +7,13 @@ Finalmente debes imprimir por pantalla cuales son las palabras magicamente equiv
 """
 
 palabras_pares = [
-    ["camino", "limón"],  # Mismas vocales: a, i, o
+    ["camino", "limón"],  # No son mágicamente equivalentes: a, i, o / i, o
     ["murciélago", "esquilador"],  # Mismas vocales: a, e, i, o, u
-    ["tigre", "grieta"],  # Mismas vocales: e, i
+    ["tigre", "grieta"],  # No son mágicamente equivalentes: i, e / i, e, a
     ["bucle", "lucha"],  # No son mágicamente equivalentes: u, e / u, a
-    ["ratón", "noche"],  # Mismas vocales: o, e
-    ["perro", "gorra"],  # Mismas vocales: o, e
-    ["mesa", "serpiente"],  # Mismas vocales: e, a
+    ["ratón", "noche"],  # No son mágicamente equivalentes: a, o / o, e
+    ["perro", "gorra"],  # No son mágicamente equivalentes: e, o / o, a
+    ["mesa", "serpiente"],  # No son mágicamente equivalentes: e, a / e, i
     ["llave", "valle"],  # Mismas vocales: a, e
     ["astro", "costra"],  # Mismas vocales: a, o
     ["libro", "robot"],  # No son mágicamente equivalentes: i, o / o
