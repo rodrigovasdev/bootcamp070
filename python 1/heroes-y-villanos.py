@@ -22,13 +22,13 @@ lista = [
 def listaHeroesVillanos(personajes):
     nuevaLista = []
     for personaje in personajes:
-        if personaje['villano'] == True and personaje['heroe'] == True:
+        if personaje['villano'] and personaje['heroe']:
             nuevoContradictorio = personaje['nombre'] + ' el contradictorio Villano/Heroe, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
             nuevaLista.append(nuevoContradictorio)
         elif personaje ['villano']:
             nuevoVillano =  personaje['nombre'] + ' es un Villano, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
             nuevaLista.append(nuevoVillano)
-        elif personaje['heroe'] == True:
+        elif personaje['heroe']:
             nuevoHeroe =  personaje['nombre'] + ' es un Heroe, su super poder es ' + personaje['superpoder'] + ' Y  habita en ' + personaje['ciudad']
             nuevaLista.append(nuevoHeroe)
     return nuevaLista
