@@ -16,3 +16,29 @@ palabras = [
     "azucar", "bazar", "pizzero", "camion", "travesia", 
     "razonable", "calabaza", "atrapazombis", "hazaña", "constelacion"
 ]
+
+def tieneTodasVocales(palabra):
+    if 'a' in palabra and 'e' in palabra and 'i' in palabra and 'o' in palabra and 'u' in palabra: 
+        return True
+    else:
+        return False
+    
+def tieneAZ(palabra):
+    if 'a' in palabra and 'z' in palabra:
+        return True
+    else:
+        return False
+
+def filtraPalabrasMagicas(palabras):
+    palabrasMagicas = []
+    for palabra in palabras:
+        if tieneTodasVocales(palabra) or len(palabra) > 7 or tieneAZ(palabra):
+            palabrasMagicas.append(palabra)
+    return palabrasMagicas
+
+
+
+listaDePalabrasMagicas = filtraPalabrasMagicas(palabras)
+print('A continuacion las palabras magicas: ')
+for elemento in listaDePalabrasMagicas:
+    print(elemento)
