@@ -29,6 +29,13 @@ def tieneAZ(palabra):
     else:
         return False
 
+def tieneMas7Caracteres(palabra):
+    if len(palabra) > 7:
+        return True
+    else:
+        return False
+
+
 def filtraPalabrasMagicas(palabras):
     palabrasMagicas = []
     for palabra in palabras:
