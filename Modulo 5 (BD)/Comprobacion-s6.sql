@@ -25,3 +25,8 @@ FROM venta
 JOIN vehiculo ON venta.Vehiculo_IDVehiculo = vehiculo.IDVehiculo
 WHERE to_char("fecha",'YYYY-MM') = '2020-01'
 GROUP BY venta.fecha, vehiculo.marca
+
+-- Req 4
+SELECT nombre, rut FROM empresa
+UNION
+SELECT nombre, rut FROM cliente
