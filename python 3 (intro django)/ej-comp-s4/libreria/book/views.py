@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
@@ -10,3 +11,8 @@ class IndexView(TemplateView):
 
 class PepitoView(TemplateView):
     template_name = 'pepito.html'
+
+def obtenerFecha(request,name):
+    fechaActual = datetime.datetime.now()
+    context = {'fecha' : fechaActual, 'nombre' : name}
+    return render(request, 'fecha.html', context)
