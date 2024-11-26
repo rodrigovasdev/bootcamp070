@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from .views import menuView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('palindromo/', include('palindromo.urls'))
+    path('palindromo/', include('palindromo.urls')),
+    path('menu',menuView, name='menu')
 ]

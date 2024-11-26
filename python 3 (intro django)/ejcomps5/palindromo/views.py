@@ -17,3 +17,6 @@ def evaluar_palindromo(palabra):
 def PalindromoView(request,palabra):
     context = evaluar_palindromo(palabra)
     return render(request,'palindromo.html',context)
+
+def PalindromoIndexView(request):
+    return render(request,'index.html')
