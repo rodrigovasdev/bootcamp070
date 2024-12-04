@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import datetime
-from .forms import InputForm
+from .forms import InputForm, WidgetForm
 def navbarView(request):
     return render(request,'navbar.html')
 
@@ -44,5 +44,11 @@ def librosView (request):
 def datosform_view(request):
  # la logica de la vista se implementa aqui
     print(request.POST)
-    context = {'gatogatito' : InputForm}
+    context = {'formularioValoracion' : InputForm}
     return render(request, "datosForm.html",context)
+
+def widget_view(request):
+    context = {}
+    form = WidgetForm(request.POST or None)
+    context['form'] = form
+    return render(request, "widget_form.html", context)

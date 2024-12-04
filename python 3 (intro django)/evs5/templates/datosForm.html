@@ -1,5 +1,34 @@
-<form action = "" method = "POST">
-    {% csrf_token %}
-    {{gatogatito}}
-    <input type="submit" value="Enviar">
-</form>
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+<style>
+    .i-am-centered {
+    margin: auto;
+    max-width: 300px;
+    padding-top: 20%;
+    }
+    </style>
+
+<div class="i-am-centered">
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Titulo</label>
+            {{formularioValoracion.Titulo}}
+        </div>
+    
+        <div class="form-group">
+            <label>Autor</label>
+            {{formularioValoracion.Autor}} 
+        </div>
+    
+        <div class="form-group">
+            <label>Valoracion</label>
+            {{formularioValoracion.Valoracion}}     
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+
+{% endblock content %}
