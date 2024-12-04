@@ -16,6 +16,3 @@ def boardsform_view(request):
 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-
-variableQueGuardaUsuario = authenticate(username='juan', password='123456')
-print(variableQueGuardaUsuario.email)
