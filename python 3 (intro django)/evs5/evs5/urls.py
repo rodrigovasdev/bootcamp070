@@ -26,5 +26,5 @@ urlpatterns = [
     path('libros', librosView, name='libros'),
     path('formulario', datosform_view, name='formulario'),
     path('formwidget', widget_view, name='widget'),
-    path('', include('formulario.urls')),
+    path('formularios/', include('formulario.urls')),
 ]
