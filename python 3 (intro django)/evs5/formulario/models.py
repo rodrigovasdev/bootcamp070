@@ -8,3 +8,6 @@ class BoardsModel(models.Model):
     valoracion = models.IntegerField(help_text='Valor entre 0 y 10000')
     def __str__(self):
         return self.titulo
+    class Meta:
+        permissions = (
+        ("es_miembro_1", "Es miembro con prioridad 1"),)
