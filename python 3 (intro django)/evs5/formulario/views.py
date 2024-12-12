@@ -2,6 +2,16 @@ from django.shortcuts import render, redirect
 from .forms import BoardsForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User,Permission
+from django.contrib.auth import authenticate
+from django.contrib import messages
+from django.contrib.auth import login, logout
+from django.contrib.contenttypes.models import ContentType
+from .forms import RegistroUsuarioForm
+from .models import BoardsModel
+
+
+
 
 # Create your views here.
 def boardsform_view(request):
@@ -16,17 +26,15 @@ def boardsform_view(request):
     context = {'formulariogato' : form}
     return render(request, "formulario.html", context)
 
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-from django.contrib import messages
-from django.contrib.auth import login, logout
-from .forms import RegistroUsuarioForm
 
 def registro_view(request):
     if request.method == "POST":
         form = RegistroUsuarioForm(request.POST)
         if form.is_valid():
+            content_type = ContentType.objects.get_for_model(BoardsModel)
+            objecto_permiso = Permission.objects.get(codename='development',content_type=content_type) 
             user = form.save()  # Guardar el usuario
+            user.user_permissions.add(objecto_permiso)
             login(request, user)  # Autenticar automáticamente al usuario
             messages.success(request, "Registrado satisfactoriamente.")
             return redirect('/')  # Usa nombres de vistas en lugar de rutas absolutas si es posible

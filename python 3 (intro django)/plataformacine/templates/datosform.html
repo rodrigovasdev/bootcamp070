@@ -1,13 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static '/formulario.css' %}">
 </head>
 <body>
     <form action="">
-        {{formulario}}
+        <div class="formulario-cine">
+            <label for="">Aqui su titulo</label>
+            {{formulario.titulo}}
+        </div>
+        <div class="formulario-cine">
+            <label for="">Aqui su trama</label>
+            {{formulario.trama}}
+        </div>
+        
+        <div class="formulario-cine">
+            <input type="submit" name="" id="">
+        </div>
+        
     </form>
+
+    
 </body>
 </html>

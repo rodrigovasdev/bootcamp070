@@ -7,4 +7,4 @@ class PeliculaForm(forms.ModelForm):
     # specify the name of model to use
     class Meta:
         model = PeliculaModel
-        fields = "__all__"
+        fields = '__all__'
