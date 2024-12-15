@@ -1,10 +1,6 @@
 from django.apps import AppConfig
 
 
-class BookConfig(AppConfig):
+class LibroConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Book'
-    verbose_name = 'Libro Gato'
-
-
- 
+    name = 'libro'

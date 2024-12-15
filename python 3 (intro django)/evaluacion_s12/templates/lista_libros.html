@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{%include 'navbar.html'%}
+<h2> Listado de libros </h2>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Valoración</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in list_book %}
+        <tr>
+        <td>{{ i.titulo }}</td>
+        <td>{{ i.autor }}</td>
+        <td>{{ i.valoracion }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+  
+ {% endblock %}
