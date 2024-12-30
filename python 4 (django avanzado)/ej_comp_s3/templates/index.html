@@ -1,0 +1,19 @@
+<h1>Productos</h1>
+<table border="1">
+    <tr>
+        <td>Nombre producto</td>
+        <td>descripcion</td>
+        <td>precio</td>
+    </tr>
+    {% for producto in productos %}
+    <tr>
+        <td>{{producto.name}}</td>
+        <td>{{producto.price}}</td>
+        <td>{{producto.description}}</td>
+    </tr>
+    {% endfor %}
+   
+    
+</table>
+
+<a href="/productos/add">Agregar nuevo</a>
