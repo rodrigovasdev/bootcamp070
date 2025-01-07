@@ -27,23 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-
-
-
-
-
-import os
-from dotenv import load_dotenv
-
-# Cargar las variables desde el archivo .env
-load_dotenv()
-
-# Configuración de Django usando las variables de entorno
-var = os.getenv('ENV_VARIABLE')
-print(var)
-print(os.getenv('SECRET_KEY'))
-
 # Application definition
 
 INSTALLED_APPS = [
