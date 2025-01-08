@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blogsite',
     'relaciones.apps.RelacionesConfig',
     'productosaseo',
+    'crudapp',
 ]
 
 MIDDLEWARE = [

@@ -4,12 +4,14 @@
         <td>Nombre producto</td>
         <td>descripcion</td>
         <td>precio</td>
+        <td>Vencimiento</td>
     </tr>
     {% for producto in productos %}
     <tr>
         <td>{{producto.name}}</td>
         <td>{{producto.price}}</td>
         <td>{{producto.description}}</td>
+        <td>{{producto.d_expiration}}</td>
     </tr>
     {% endfor %}
    

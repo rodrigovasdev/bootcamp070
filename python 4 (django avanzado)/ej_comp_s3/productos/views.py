@@ -21,7 +21,8 @@ def addproducto(request):
     name = request.POST['name']
     price = request.POST['price']
     description = request.POST['description']
-    product = Product(name=name, price=price, description=description)
+    expiration_date = request.POST['d_expiration']
+    product = Product(name=name, price=price, description=description, d_expiration = expiration_date)
     product.save()
     messages.success(request,'guardado correctamente')
     return redirect('/productos/lista')
