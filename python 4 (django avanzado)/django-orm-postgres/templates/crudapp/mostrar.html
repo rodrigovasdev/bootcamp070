@@ -31,6 +31,7 @@
                 <th>Designación</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Detalle</th>
             </tr>
         </thead>
         <tbody>
@@ -45,6 +46,9 @@
                     </td>
                     <td>
                         <a href="/crud/eliminar/{{empleado.pk}}">Eliminar</a>
+                    </td>
+                    <td>
+                        <a href="/crud/empleado/{{empleado.pk}}">Ver Detalle</a>
                     </td>
                 </tr>
             {% endfor %}

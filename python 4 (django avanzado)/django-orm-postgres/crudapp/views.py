@@ -46,3 +46,10 @@ def eliminar_emp(request,pk):
     'empleado': empleado,
     }
     return render(request, 'crudapp/eliminar.html', context)
+
+def detalle_emp(request,pk):
+    empleado = Empleado.objects.get(id=pk)
+    context = {
+    'empleado': empleado,
+    }
+    return render(request, 'crudapp/detalle.html', context)
