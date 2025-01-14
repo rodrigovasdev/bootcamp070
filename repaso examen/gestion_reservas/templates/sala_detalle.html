@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{sala.nombre}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{sala.equipamiento}}</h6>
+      <p class="card-text">{{sala.ubicacion}}</p>
+      <a href="/salas/{{sala.id}}/editar" class="card-link text-success">Editar</a>
+      <a href="/salas/{{sala.id}}/eliminar" class="card-link text-danger">Eliminar</a>
+    </div>
+  </div>
+
+  {% endblock %} 

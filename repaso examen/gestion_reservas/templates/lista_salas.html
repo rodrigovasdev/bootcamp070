@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Ubicacion</th>
+            <th scope="col">Equipamiento</th>
+            <th scope="col">Disponibilidad</th>
+            <th scope="col">Detalle</th>
+        </tr>
+        </thead>
+    {%for sala in salas %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{sala.id}}</th>
+                  <td>{{sala.nombre}}</td>
+                  <td>{{sala.capacidad}}</td>
+                  <td>{{sala.ubicacion}}</td>
+                  <td>{{sala.equipamiento}}</td>
+                  <td>{{sala.disponibilidad}}</td>
+                  <td><a href="/salas/{{sala.id}}">Detalle</a></td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/salas/nueva">Nueva sala</a>
+
+{% endblock %}
