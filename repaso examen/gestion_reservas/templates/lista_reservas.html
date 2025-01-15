@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>Reservas</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Fin</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar</th>
+        </tr>
+        </thead>
+    {%for reserva in reservas %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{reserva.id}}</th>
+                  <td>{{reserva.sala}}</td>
+                  <td>{{reserva.nombre_cliente}}</td>
+                  <td>{{reserva.hora_inicio}}</td>
+                  <td>{{reserva.hora_fin}}</td>
+                  <td>{{reserva.estado}}</td>
+                  <td><a href="/reservas/{{reserva.id}}/editar">Editar</a></td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/reservas/nueva">Nueva reserva</a>
+
+{% endblock %}

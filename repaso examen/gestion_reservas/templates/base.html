@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Sitio{% endblock %}</title>
+    <!-- Estilos de Datepicker -->
 
-    <!-- Cargar estilos de Bootstrap -->
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% block extra_css %}{% endblock %}
+<!-- Scripts de Datepicker -->
+<!-- Cargar estilos de Bootstrap -->
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% block extra_css %}{% endblock %}
 </head>
 <body>
     
-        {% block content %}{% endblock %}
-
+    {% block content %}
+    {% endblock %}
+    
     <!-- Cargar scripts de Bootstrap -->
     {% bootstrap_javascript %}
     {% block extra_js %}{% endblock %}
