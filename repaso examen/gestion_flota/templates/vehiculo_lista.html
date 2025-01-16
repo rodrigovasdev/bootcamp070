@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Patente</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Disponibilidad</th>
+            <th scope="col">Ajustes</th>
+        </tr>
+        </thead>
+    {%for vehiculo in vehiculos %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{vehiculo.id}}</th>
+                  <td>{{vehiculo.marca}}</td>
+                  <td>{{vehiculo.modelo}}</td>
+                  <td>{{vehiculo.patente}}</td>
+                  <td>{{vehiculo.capacidad}}</td>
+                  <td>{{vehiculo.disponible}}</td>
+                  <td> <a href="/flota/vehiculos/editar/{{vehiculo.id}}">Editar</a></td>
+                  <td> <a href="/flota/vehiculos/eliminar/{{vehiculo.id}}">Eliminar</a></td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/flota/vehiculos/nuevo">Nuevo vehiculo</a>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Vehiculo</th>
+            <th scope="col">Fecha ini</th>
+            <th scope="col">Fecha fin</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Ajustes</th>
+        </tr>
+        </thead>
+    {%for asignacion in asignaciones %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{asignacion.id}}</th>
+                  <td>{{asignacion.usuario}}</td>
+                  <td>{{asignacion.vehiculo}}</td>
+                  <td>{{asignacion.fecha_asignacion}}</td>
+                  <td>{{asignacion.fecha_desasignacion}}</td>
+                  <td>{{asignacion.estado}}</td>
+                  <td><a href="/flota/asignaciones/editar/{{asignacion.id}}">Editar</a></td>
+                  <td><a href="/flota/asignaciones/eliminar/{{asignacion.id}}">Eliminar</a></td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/flota/asignaciones/nueva">Nueva asignacion</a>
+
+{% endblock %}

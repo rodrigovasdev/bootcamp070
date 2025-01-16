@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+        </tr>
+        </thead>
+    {%for usuario in usuarios %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{usuario.id}}</th>
+                  <td>{{usuario}}</td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/flota/usuarios/nuevo">Nuevo usuario</a>
+
+{% endblock %}

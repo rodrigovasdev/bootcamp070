@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
+    <!-- Estilos de Datepicker -->
+
+<!-- Scripts de Datepicker -->
+<!-- Cargar estilos de Bootstrap -->
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Flota System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/flota/usuarios">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/flota/vehiculos">Vehiculos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/flota/asignaciones">Asignaciones</a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <p class="text-white">Bienvenido, {{ user.username }}!</p>
+            </li>
+            <li class="nav-item">
+                  <a href="{% url 'logout' %}">Cerrar sesión</a>
+              </li>
+            {% else %}
+            <li class="nav-item"> 
+                <p class="text-white">No has iniciado sesión.</p>
+            </li>
+            <li class="nav-item"> 
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+            </li>
+            {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    {% block content %}
+    {% endblock %}
+    
+    <!-- Cargar scripts de Bootstrap -->
+    {% bootstrap_javascript %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
