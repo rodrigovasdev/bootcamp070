@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="p-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{libro.titulo}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{libro.autor}}</h6>
+          <a href="/biblioteca/prestamos/usuario/{{libro.id}}" class="card-link">Pedir libro</a>
+        </div>
+      </div>
+</div>
+{% endblock %}
+<

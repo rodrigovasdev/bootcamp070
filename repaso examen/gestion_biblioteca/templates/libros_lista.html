@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="p-3">
+        <h2>Lista libros</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+            </thead>
+        {%for libro in libros %}
+            <tbody>
+                    <tr>
+                    <th scope="row">{{libro.isbn}}</th>
+                    <td>{{libro.titulo}}</td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.disponible}}</td>
+                    <td><a href="/biblioteca/libros/detalle/{{libro.id}}">Detalle</a></td>
+                    <td><a href="/biblioteca/libros/editar/{{libro.id}}">Editar</a></td>
+                    <td><a href="/biblioteca/libros/eliminar/{{libro.id}}">Eliminar</a></td>
+                    </tr>
+            </tbody>
+        {%endfor%}
+        </table>
+        <a href="/biblioteca/libros/nuevo">Nuevo libro</a>
+    </div>
+
+{% endblock %}
